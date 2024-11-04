@@ -24,7 +24,8 @@ class MercadoLivreSmartphoneAppleSpider(scrapy.Spider):
             yield {
                 'marca' : 'Apple', 
                 'titulo' : produto.css('a.ui-search-link__title-card.ui-search-link::text').get(),
-                'preco' : produto.css('div.ui-search-price__second-line').css('span.andes-money-amount__fraction::text').get() #Parte Inteira do Valor 
+                'preco' : produto.css('div.ui-search-price__second-line').css('span.andes-money-amount__fraction::text').get()  #Parte Inteira do Valor
+                          + preco_fracao,  #Parte Fração do Valor         
                 'condicao': 'Novo',# Já contém um filtro no link de pesquisa da página do ecommerce
                 'data_captura' : datetime.now(pytz.utc).astimezone(pytz.timezone('America/Fortaleza')).strftime("%d/%m/%Y %H:%M:%S")
             }

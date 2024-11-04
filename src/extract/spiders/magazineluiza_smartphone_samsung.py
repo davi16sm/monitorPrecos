@@ -65,12 +65,12 @@ class MagazineluizaSmartphoneSamsungSpider(scrapy.Spider):
         produtos = selector.css('li.sc-fTyFcS.iTkWie')
 
         for produto in produtos:
-            
+            titulo = produto.css('h2[data-testid=product-title]::text').get()
             yield {
                 'marca': 'Samsung',  # produto.css('span.poly-component__brand::text').get(),
-                'titulo': produto.css('h2[data-testid=product-title]::text').get(),
-                'preco': produto.css('p[data-testid=price-value]::text').get(),                
-                'condicao': 'Usado' if produto.css('h2[data-testid=product-title]::text').get() and "usado" in produto.css('h2[data-testid=product-title]::text').get() else 'Novo',
+                'titulo': titulo,
+                'preco': produto.css('p[data-testid=price-value]::text').get(),
+                'condicao': 'Usado' if titulo and "usado" in titulo.lower() else 'Novo',
                 'data_captura': datetime.now(pytz.utc).astimezone(pytz.timezone('America/Fortaleza')).strftime("%d/%m/%Y %H:%M:%S")
             }
 
