@@ -14,7 +14,8 @@ NEWSPIDER_MODULE = "extract.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36' 
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36'
+             #'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
             #"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" #"extract (+http://www.yourdomain.com)"                
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -29,7 +30,7 @@ PROXY_URL = 'https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 2
+DOWNLOAD_DELAY = 5
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -103,4 +104,6 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 LOG_LEVEL = 'DEBUG'
 
-#REDIRECT_ENABLED = False
+REDIRECT_ENABLED = True
+
+COOKIES_ENABLED = True
